@@ -42,13 +42,15 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'rspec-rails'
 end
 group :production do
   gem 'rails_12factor'
   gem 'unicorn'
 end
 group :test do
+  gem 'minitest-rails', '~> 1.0'
+  gem 'minitest-rails-capybara', '~> 1.0'
+  gem 'minitest-reporters'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
