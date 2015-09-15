@@ -40,9 +40,6 @@ group :production do
   gem 'unicorn'
 end
 group :test do
-  gem 'minitest-rails', '~> 1.0'
-  gem 'minitest-rails-capybara', '~> 1.0'
-  gem 'minitest-reporters'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
