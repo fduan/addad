@@ -1,6 +1,16 @@
 // import the CSS framework
 @import "bootstrap-sprockets";
+
+// Import cerulean variables
+@import "bootswatch/yeti/variables";
+
 @import "bootstrap";
+
+// Bootstrap body padding for fixed navbar
+body { padding-top: 60px; }
+
+// And finally bootswatch style itself
+@import "bootswatch/yeti/bootswatch";
 
 // make all images responsive by default
 img {
