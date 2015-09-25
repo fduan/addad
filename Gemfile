@@ -11,8 +11,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'bootswatch-rails'
 gem 'bootstrap-sass'
+
 gem 'devise'
 gem 'pg'
+
+gem 'simple_form'
+gem 'seed-fu'
 
 gem 'omniauth'
 gem 'omniauth-twitter'
@@ -54,4 +58,6 @@ group :test do
   gem "shoulda"
   gem "connection_pool"
   gem 'simplecov', :require => false
+  gem 'simplecov-rcov', :require => false
+  gem 'minitest-around'
 end

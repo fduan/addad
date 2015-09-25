@@ -1,15 +1,8 @@
-include Warden::Test::Helpers
-Warden.test_mode!
-
 # Feature: User profile page
 #   As a user
 #   I want to visit my user profile page
 #   So I can see my personal account data
-feature 'User profile page', :devise do
-
-  after(:each) do
-    Warden.test_reset!
-  end
+feature 'User profile page' do
 
   # Scenario: User sees own profile
   #   Given I am signed in
@@ -19,8 +12,8 @@ feature 'User profile page', :devise do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
     visit user_path(user)
-    expect(page).to have_content 'User'
-    expect(page).to have_content user.email
+    assert_content 'User'
+    assert_content user.email
   end
 
   # Scenario: User cannot see another user's profile
@@ -33,7 +26,7 @@ feature 'User profile page', :devise do
     login_as(me, :scope => :user)
     Capybara.current_session.driver.header 'Referer', root_path
     visit user_path(other)
-    expect(page).to have_content 'Access denied.'
+    assert_content 'Access denied.'
   end
 
 end

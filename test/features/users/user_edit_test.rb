@@ -1,15 +1,8 @@
-include Warden::Test::Helpers
-Warden.test_mode!
-
 # Feature: User edit
 #   As a user
 #   I want to edit my user profile
 #   So I can change my email address
-feature 'User edit', :devise do
-
-  after(:each) do
-    Warden.test_reset!
-  end
+feature 'User edit' do
 
   # Scenario: User changes email address
   #   Given I am signed in
@@ -23,7 +16,7 @@ feature 'User edit', :devise do
     fill_in 'Current password', :with => user.password
     click_button 'Update'
     txts = [I18n.t( 'devise.registrations.updated'), I18n.t( 'devise.registrations.update_needs_confirmation')]
-    expect(page).to have_content(/.*#{txts[0]}.*|.*#{txts[1]}.*/)
+    assert_content(/.*#{txts[0]}.*|.*#{txts[1]}.*/)
   end
 
   # Scenario: User cannot edit another user's profile
@@ -35,8 +28,8 @@ feature 'User edit', :devise do
     other = FactoryGirl.create(:user, email: 'other@example.com')
     login_as(me, :scope => :user)
     visit edit_user_registration_path(other)
-    expect(page).to have_content 'Edit User'
-    expect(page).to have_field('Email', with: me.email)
+    assert_content 'Edit User'
+    assert_field('Email', with: me.email)
   end
 
 end
