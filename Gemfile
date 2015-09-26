@@ -11,6 +11,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'bootswatch-rails'
 gem 'bootstrap-sass'
+gem "font-awesome-rails"
 
 gem 'devise'
 gem 'pg'
