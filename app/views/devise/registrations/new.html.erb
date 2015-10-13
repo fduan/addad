@@ -5,8 +5,11 @@
     <%= f.input :email %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
-    <%= f.button :submit, t("devise.registrations.new.sign_up"), :class => 'button right' %>
+    <div class="form-group">
+   	  <%= f.button :submit, t("devise.registrations.new.sign_up"), :class => 'button right form-control' %>
+	</div>
   <% end %>
 
   <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+  <%= link_to "Sign in with Linkedin", user_omniauth_authorize_path(:linkedin) %>
 </div>
