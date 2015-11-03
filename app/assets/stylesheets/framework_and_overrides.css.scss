@@ -27,7 +27,6 @@ img {
 // to make views framework-neutral
 .column {
   @extend .col-md-6;
-  @extend .text-center;
   }
 .form {
   @extend .col-md-6;
@@ -60,28 +59,36 @@ section {
   max-width: 320px;
   margin: 0 auto;
 }
-.authform form {
-  @extend .well;
-  @extend .well-lg;
-  padding-bottom: 50px;
+.authform {
+  form {
+    @extend .well;
+    @extend .well-lg;
+    padding-bottom: 50px;
+  }
+  .sign-up-social {
+    padding: 20px 0px 20px 0px;
+    .button {
+      @extend .btn;
+      @extend .btn-default;
+      @extend .btn-block;
+    }
+  }
+  .right {
+    float: right !important;
+  }
+  .button {
+    @extend .btn;
+    @extend .btn-primary;
+  }
 }
-.authform .right {
-  float: right !important;
-}
-.authform .button {
-  @extend .btn;
-  @extend .btn-primary;
-}
-.authform fieldset {
-  @extend .well;
-}
+
 #error_explanation {
   @extend .alert;
   @extend .alert-danger;
+  h2 {
+  font-size: 16px;}
 }
-#error_explanation h2 {
-  font-size: 16px;
-}
+
 .button-xs {
   @extend .btn;
   @extend .btn-primary;
