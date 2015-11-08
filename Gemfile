@@ -24,6 +24,14 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
+gem 'friendly_id', '~> 5.1.0'
+gem 'will_paginate'
+gem 'carrierwave'
+
+gem 'acts_as_commentable'
+gem 'auto_html'
+gem 'counter_culture', '~> 0.1.33'
+
 group :development do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

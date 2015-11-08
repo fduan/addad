@@ -1,0 +1,40 @@
+<div class="content">
+  <h3><%= product.name %>
+
+  <span class="text"><%= product.description %></span>
+  
+  <div class="created-at">
+    <%= fa_icon 'clock-o' %>
+    <%= time_ago_in_words(product.created_at) %> ago
+  </div>
+
+  <div class="points">
+    <span class="comments-count"><%= pluralize(product.comments_count, 'comment') %></span>
+
+    <div class="pull-right">
+      <% if true %>
+        <%= link_to edit_product_path(product), class: 'btn btn-primary btn-sm' do %>
+          <% fa_icon 'pencil' %>
+        <% end %>
+        <%= link_to product_path(product), method: :delete, class:'btn btn-danger btn-sm', remote: remote do %>
+          <% fa_icon 'trash' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% if user_signed_in? %>
+  <div class="actions">
+    <div class="row">
+      <div class="col-xs-6 like">
+        
+      </div>
+      <div class="col-xs-6 comment">
+        <%= link_to product, class: 'btn btn-block' do %>
+          <%= fa_icon 'comment' %> comment
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

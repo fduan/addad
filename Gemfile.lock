@@ -27,9 +27,16 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts_as_commentable (4.0.2)
     addressable (2.3.8)
+    after_commit_action (1.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
     ansi (1.5.0)
     arel (5.0.1.20140414130214)
+    auto_html (1.6.4)
+      redcarpet (~> 3.1)
+      rinku (~> 1.5.0)
     autoprefixer-rails (6.0.3)
       execjs
       json
@@ -53,10 +60,19 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     childprocess (0.5.6)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.0)
     connection_pool (2.2.0)
+    counter_culture (0.1.34)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      after_commit_action (~> 1.0.0)
     database_cleaner (1.5.0)
     debug_inspector (0.0.2)
     devise (3.5.2)
@@ -82,6 +98,8 @@ GEM
     font-awesome-rails (4.4.0.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.5)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -223,8 +241,10 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.2.0)
       json (~> 1.4)
+    redcarpet (3.3.3)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
+    rinku (1.5.1)
     ruby-progressbar (1.7.5)
     rubyzip (1.1.7)
     sass (3.4.18)
@@ -290,6 +310,7 @@ GEM
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     websocket (1.2.2)
+    will_paginate (3.0.7)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -297,18 +318,23 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_commentable
+  auto_html
   better_errors
   binding_of_caller
   bootstrap-sass
   bootswatch-rails
   byebug
   capybara
+  carrierwave
   connection_pool
+  counter_culture (~> 0.1.33)
   database_cleaner
   devise
   factory_girl_rails
   faker
   font-awesome-rails
+  friendly_id (~> 5.1.0)
   guard-bundler
   guard-minitest
   guard-rails
@@ -344,3 +370,4 @@ DEPENDENCIES
   uglifier
   unicorn
   web-console (~> 2.0)
+  will_paginate

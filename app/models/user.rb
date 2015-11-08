@@ -7,8 +7,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
+  mount_uploader :avatar, AvatarUploader
+  
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :finders]
+
   validates :name, :email, :password, presence: true
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+
+  has_many :comments
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
