@@ -1,3 +1,7 @@
 <%= link_to user_path(user) do %>
-  <%= image_tag user.avatar.url || 'avatar.jpg', class: 'avatar' %>
+  <% if user.avatar.present? %>
+    <%= image_tag user.avatar.url, class: 'avatar' %>
+  <% else %>
+  	<i class="avatar avatar-color-<%= user.id % 215 %>"><%= user.name[0] %></i>
+  <% end %>
 <% end %>
