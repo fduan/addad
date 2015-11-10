@@ -12,10 +12,12 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
 
-  validates :name, :email, :password, presence: true
+  validates :name, :email, presence: true
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
   has_many :comments
+
+  acts_as_liker
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 

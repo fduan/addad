@@ -242,6 +242,9 @@ GEM
     rdoc (4.2.0)
       json (~> 1.4)
     redcarpet (3.3.3)
+    redis (3.2.1)
+    redis-namespace (1.5.2)
+      redis (~> 3.0, >= 3.0.4)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
     rinku (1.5.1)
@@ -283,6 +286,8 @@ GEM
     simplecov-rcov (0.2.3)
       simplecov (>= 0.4.1)
     slop (3.6.0)
+    socialization (1.2.0)
+      activerecord
     spring (1.4.0)
     sprockets (3.3.5)
       rack (> 1, < 3)
@@ -358,6 +363,8 @@ DEPENDENCIES
   rb-fchange
   rb-fsevent
   rb-inotify
+  redis
+  redis-namespace
   sass-rails
   sdoc (~> 0.4.0)
   seed-fu
@@ -366,6 +373,7 @@ DEPENDENCIES
   simple_form
   simplecov
   simplecov-rcov
+  socialization
   spring
   uglifier
   unicorn

@@ -15,6 +15,8 @@ gem "font-awesome-rails"
 
 gem 'devise'
 gem 'pg'
+gem 'redis'
+gem 'redis-namespace'
 
 gem 'simple_form'
 gem 'seed-fu'
@@ -28,6 +30,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'will_paginate'
 gem 'carrierwave'
 
+gem 'socialization'
 gem 'acts_as_commentable'
 gem 'auto_html'
 gem 'counter_culture', '~> 0.1.33'

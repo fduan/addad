@@ -10,7 +10,7 @@
 
   <div class="points">
     <span class="comments-count"><%= pluralize(product.comments_count, 'comment') %></span>
-
+    <span class="like-count"><%= pluralize(product.likers(User).count, 'like') %></span>
     <div class="pull-right">
       <% if true %>
         <%= link_to edit_product_path(product), class: 'btn btn-primary btn-sm' do %>
@@ -28,7 +28,7 @@
   <div class="actions">
     <div class="row">
       <div class="col-xs-6 like">
-        
+        <%= render 'likes/form', likeable: product %>
       </div>
       <div class="col-xs-6 comment">
         <%= link_to product, class: 'btn btn-block' do %>
