@@ -14,6 +14,8 @@ class CommentsController < ApplicationController
   def destroy
     @comment = current_user.comments.find(params[:id])
     @comment_id = params[:id]
+    @commentable_type = @comment.commentable_type
+    @commentable = @comment.commentable
     @comment.destroy
   end
 
