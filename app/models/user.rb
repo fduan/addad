@@ -18,9 +18,10 @@ class User < ActiveRecord::Base
   has_many :comments
 
   acts_as_liker
+  acts_as_followable
+  acts_as_follower
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
-
     # Get the identity and user if they exist
     identity = Identity.find_for_oauth(auth)
 

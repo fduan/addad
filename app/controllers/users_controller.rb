@@ -1,15 +1,13 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy, :finish_signup]
-
+  before_action :check_ownership, only: [:edit, :update]
+  
   def index
     @users = User.all
   end
 
   def show
-    unless @user == current_user
-      redirect_to :back, :alert => "Access denied."
-    end
   end
 
   # GET /users/:id/edit
@@ -66,6 +64,10 @@ class UsersController < ApplicationController
     accessible = [ :name, :email ] # extend with your own params
     accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
     params.require(:user).permit(accessible)
+  end
+
+  def check_ownership
+    redirect_to current_user, notice: 'Not Authorized' unless @user == current_user
   end
 
 end

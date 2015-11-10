@@ -1,3 +1,36 @@
-<h3>User</h3>
-<p>Name: <%= @user.name if @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+<div id="user-<%= @user.id %>" class="row">
+  <div class="col-lg-3">
+    <%= render 'shared/user_info' %>
+  </div>
+  <div class="col-lg-6">
+    <div id="activities">
+      <% if @activities.blank? %>
+        <div class="well">
+        	No Activities
+        </div>
+      <% else %>
+      <% if false %>
+        <%= render_activities(@activities, layout: '/shared/activity') %>
+      <% end %>
+      <% end %>
+    </div>
+    <% if @activities.present? %>
+	    <div id="endless-scroll" class="well text-center hidden">
+	  	  <%= image_tag 'ajax-loader.gif' %>
+	  	  <%= will_paginate @activities %>
+	    </div>
+    <% end %>
+  </div>
+  <div class="col-lg-3">
+    <% if is_current_user?(@user) %>
+      <div class="well">
+        <ul class="nav nav-pills nav-stacked">
+          <li><%= link_to 'Edit Profile', edit_user_path(@user) %></li>
+          <li><%= link_to 'Change password', edit_user_registration_path %></li>
+          <li><%= link_to 'Following', '' %></li>
+          <li><%= link_to 'Followers', '' %></li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
