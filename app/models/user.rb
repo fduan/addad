@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   
   extend FriendlyId
-  friendly_id :name, use: [:slugged, :finders]
+  friendly_id :slug_candidates, use: [:slugged, :finders]
 
   validates :name, :email, presence: true
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   acts_as_liker
   acts_as_followable
   acts_as_follower
+  acts_as_mentionable
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
     # Get the identity and user if they exist
@@ -69,4 +70,18 @@ class User < ActiveRecord::Base
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
+
+  private
+
+  def should_generate_new_friendly_id?
+    name_changed?
+  end
+
+  def slug_candidates
+    [
+      :name,
+      [:name, :id]
+    ]
+  end
+
 end

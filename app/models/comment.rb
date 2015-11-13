@@ -9,6 +9,7 @@ class Comment < ActiveRecord::Base
   # NOTE: install the acts_as_votable plugin if you
   # want user to vote on the quality of comments.
   #acts_as_voteable
+  acts_as_mentioner
 
   # NOTE: Comments belong to a user
   belongs_to :user
@@ -19,9 +20,22 @@ class Comment < ActiveRecord::Base
 
   auto_html_for :comment do
     html_escape
+    mention
     image
     youtube(width: 400, height: 250, autoplay: true)
     link target: '_blank', rel: 'nofollow'
     simple_format
   end
+
+  def mentions
+    @mentions ||= begin
+                    regex = /@([^\s]+)/
+                    comment.scan(regex).flatten
+                  end
+  end
+
+  def mentioned_users
+    @mentioned_users ||= User.where(slug: mentions)
+  end
+
 end

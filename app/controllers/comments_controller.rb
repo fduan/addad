@@ -9,6 +9,10 @@ class CommentsController < ApplicationController
       comment.user = current_user
     end
     @comment.save
+
+    @comment.mentioned_users.each do |u|
+      @comment.mention!(u)
+    end
   end
 
   def destroy

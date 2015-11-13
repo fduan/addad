@@ -34,6 +34,7 @@ gem 'socialization'
 gem 'acts_as_commentable'
 gem 'auto_html'
 gem 'counter_culture', '~> 0.1.33'
+gem 'jquery-atwho-rails', '~> 1.3.2'
 
 group :development do
   gem 'byebug'
