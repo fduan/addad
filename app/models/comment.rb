@@ -11,6 +11,9 @@ class Comment < ActiveRecord::Base
   #acts_as_voteable
   acts_as_mentioner
 
+  include PublicActivity::Model
+  tracked only: [:create], owner: Proc.new { |controller, model| model.user }
+
   # NOTE: Comments belong to a user
   belongs_to :user
 

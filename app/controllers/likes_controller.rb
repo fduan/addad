@@ -5,13 +5,13 @@ class LikesController < ApplicationController
 
   def create
     current_user.like!(@likeable)
-    #@likeable.create_activity(:like, owner: current_user)
+    @likeable.create_activity(:like, owner: current_user)
   end
 
   def destroy
     current_user.unlike!(@likeable)
-    #activity = PublicActivity::Activity.find_by_trackable_id_and_key(@likeable.id, "#{@likeable_type.downcase}.like")
-    #activity.destroy if activity.present?
+    activity = PublicActivity::Activity.find_by_trackable_id_and_key(@likeable.id, "#{@likeable_type.downcase}.like")
+    activity.destroy if activity.present?
   end
 
   private

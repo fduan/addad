@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :finish_signup]
   before_action :check_ownership, only: [:edit, :update]
   
-  respond_to :html, :json
+  respond_to :html, :json, :js
 
   def index
     @users = User.all
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @activities = PublicActivity::Activity.where(owner: @user).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   # GET /users/:id/edit

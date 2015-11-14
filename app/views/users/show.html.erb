@@ -9,17 +9,10 @@
         	No Activities
         </div>
       <% else %>
-      <% if false %>
-        <%= render_activities(@activities, layout: '/shared/activity') %>
-      <% end %>
+        <%= render_activities(@activities, layout: 'activity') %>
       <% end %>
     </div>
-    <% if @activities.present? %>
-	    <div id="endless-scroll" class="well text-center hidden">
-	  	  <%= image_tag 'ajax-loader.gif' %>
-	  	  <%= will_paginate @activities %>
-	    </div>
-    <% end %>
+    <%= render 'shared/paginate', resources: @activities %>
   </div>
   <div class="col-lg-3">
     <% if is_current_user?(@user) %>

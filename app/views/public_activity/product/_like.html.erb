@@ -1,0 +1,18 @@
+<% if activity.trackable %>
+  <div class="activity-like">
+    <div class="info">
+      <%= render 'shared/avatar', user: activity.owner %>
+      <h4 class="name"><%= activity.owner.name %></h4>
+      <span class="action">liked a <%= link_to 'product', activity.trackable %></span>
+    </div>
+    <div class="content">
+      <h4><small><%= activity.trackable.name %></small></h4>
+    </div>
+
+  <div class="created-at">
+    <%= fa_icon 'clock-o' %>
+    <%= time_ago_in_words(activity.created_at) %> ago
+  </div>
+
+  </div>
+<% end %>

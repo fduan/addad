@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
   before_action :ensure_signup_complete, only: [:new, :create, :update, :destroy]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  # public_activity to set owner to current_user
+  include PublicActivity::StoreController
+
   protected
 
   def configure_permitted_parameters

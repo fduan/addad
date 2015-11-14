@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug_candidates, use: [:slugged, :finders]
 
+  include PublicActivity::Common
+
   validates :name, :email, presence: true
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 

@@ -1,0 +1,15 @@
+<div class="activity-follow">
+  <div class="follower">
+    <%= render 'shared/avatar', user: activity.owner %>
+    <h4 class="name"><%= activity.owner.name %></h4>
+    <span class="action">Followed </span>
+  </div>
+  <div class="followee">
+    <%= render 'shared/avatar', user: activity.trackable %>
+    <h4 class="name"><%= activity.trackable.name %></h4>
+  </div>
+  <div class="created-at">
+    <%= fa_icon 'clock-o' %>
+    <%= time_ago_in_words(activity.created_at) %> ago
+  </div>
+</div>

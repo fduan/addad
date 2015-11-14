@@ -6,4 +6,7 @@ class Product < ActiveRecord::Base
 	acts_as_commentable
 
 	acts_as_likeable
+
+	include PublicActivity::Model
+	tracked only: [:create], owner: Proc.new{ |controller, model| controller && controller.current_user }
 end
