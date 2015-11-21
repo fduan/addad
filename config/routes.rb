@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   unauthenticated :user do
-  	root to: 'products#index'
+  	root to: 'visitors#index'
   end
 
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup

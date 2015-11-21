@@ -20,6 +20,7 @@ img {
   @extend .img-responsive;
   margin: 0 auto;
   }
+
 // override for the 'Home' navigation link
 .navbar-brand {
   font-size: inherit;
@@ -85,7 +86,7 @@ section {
     padding: 20px 0px 20px 0px;
     .button {
       @extend .btn;
-      @extend .btn-default;
+      @extend .btn-primary;
       @extend .btn-block;
     }
   }
