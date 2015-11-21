@@ -5,7 +5,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "Addad" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Addad" %>">
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag 'bootstrap-material-design/dist/css/material-custom.min.css' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -16,5 +16,18 @@
        <%= render 'layouts/messages' %>
        <%= yield %>
     </main>
+
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'bootstrap-material-design/dist/js/ripples.min.js' %>
+    <%= javascript_include_tag 'bootstrap-material-design/dist/js/material.min.js' %>
+
+    <%= yield :javascript %>
+
+    <script>
+      $(document).ready(function() {
+        // This command is used to initialize some elements and make them work properly
+        $.material.init();
+      });
+    </script>
   </body>
 </html>

@@ -2,10 +2,10 @@
   <div class="info">
     <%= render 'shared/avatar', user: activity.owner %>
     <h4 class="name"><%= activity.owner.name %></h4>
-    <span class="action">commented on a <%= link_to 'product', activity.trackable.commentable %></span>
+    <span class="action">commented on a <%= link_to 'product', activity.trackable.try(:commentable) %></span>
   </div>
   <div class="content">
-    <h4><small><%= activity.trackable.comment %></small></h4>
+    <h4><small><%= activity.trackable.try(:comment) %></small></h4>
   </div>
   <div class="created-at">
     <%= fa_icon 'clock-o' %>
