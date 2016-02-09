@@ -13,8 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require bootstrap-material-design/dist/js/ripples
-//= require bootstrap-material-design/dist/js/material
 //= require bindWithDelay
 //= require jquery.atwho
 //= require_tree .
