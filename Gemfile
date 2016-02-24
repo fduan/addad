@@ -36,6 +36,7 @@ gem 'auto_html', '1.6.4'
 gem 'counter_culture', '~> 0.1.33'
 gem 'jquery-atwho-rails', '~> 1.3.2'
 gem 'public_activity'
+gem 'mailboxer'
 
 group :development do
   gem 'byebug'

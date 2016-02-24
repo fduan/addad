@@ -37,6 +37,7 @@
             <ul class="dropdown-menu">
               <li><a href="#">Welcome, <%= current_user.name %></a></li>
               <li role="separator" class="divider"></li>
+              <li><%= link_to "Inbox", mailbox_inbox_path %></li>
               <li><%= link_to 'Profile', user_path(current_user) %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to 'Settings', '#' %></li>

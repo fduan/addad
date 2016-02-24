@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   # public_activity to set owner to current_user
   include PublicActivity::StoreController
 
+  helper_method :mailbox, :conversation
+
   protected
 
   def configure_permitted_parameters
@@ -24,6 +26,16 @@ class ApplicationController < ActionController::Base
     if current_user && !current_user.email_verified?
       redirect_to finish_signup_path(current_user)
     end
+  end
+
+  private
+
+  def mailbox
+    @mailbox ||= current_user.mailbox
+  end
+
+  def conversation
+    @conversation ||= mailbox.conversations.find(params[:id])
   end
 
 end

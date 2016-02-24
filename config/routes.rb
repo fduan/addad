@@ -19,4 +19,17 @@ Rails.application.routes.draw do
   match :follow, to: 'follows#create', as: :follow, via: :post
   match :unfollow, to: 'follows#destroy', as: :unfollow, via: :post
 
+  # mailbox folder routes
+  get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
+  get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
+  get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
+
+  # conversations
+  resources :conversations do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+  end
 end

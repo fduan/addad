@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   acts_as_followable
   acts_as_follower
   acts_as_mentionable
+  acts_as_messageable
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
     # Get the identity and user if they exist
@@ -71,6 +72,14 @@ class User < ActiveRecord::Base
 
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
+  end
+
+  def mailboxer_name
+    self.name
+  end
+
+  def mailboxer_email(object)
+    self.email
   end
 
   private
