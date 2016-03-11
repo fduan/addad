@@ -18,6 +18,9 @@ gem 'pg'
 gem 'redis'
 gem 'redis-namespace'
 
+gem 'rolify'
+gem 'pundit'
+
 gem 'simple_form'
 gem 'seed-fu'
 
