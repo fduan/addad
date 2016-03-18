@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   respond_to :html
 
   def index
-    @products = Product.all
+    @products = policy_scope(Product).all
     respond_with(@products)
   end
 

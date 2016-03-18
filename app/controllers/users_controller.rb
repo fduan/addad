@@ -6,11 +6,12 @@ class UsersController < ApplicationController
   respond_to :html, :json, :js
 
   def index
-    @users = User.all
+    @users = policy_scope(User).all
     respond_with(@users)
   end
 
   def show
+    authorize @user
     @activities = PublicActivity::Activity.where(owner: @user).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
