@@ -1,22 +1,23 @@
 source 'https://rubygems.org'
 ruby '2.3.0'
-gem 'rails', '~> 4.2'
+gem 'rails', '~> 5.0.0'
+
 gem 'sass-rails'
 gem 'uglifier'
-#gem 'coffee-rails', '~> 4.0.0'
+#gem 'coffee-rails'
 gem 'jquery-rails'
 #gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'jbuilder'
 
 #gem 'bootswatch-rails'
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
 
-gem 'devise'
+gem 'devise', '>= 4.2.0'
 gem 'pg'
 gem 'redis'
 gem 'redis-namespace'
+gem 'puma', '~> 3.0'
 
 gem 'rolify'
 gem 'pundit'
@@ -39,32 +40,36 @@ gem 'auto_html', '1.6.4'
 gem 'counter_culture', '~> 0.1.33'
 gem 'jquery-atwho-rails', '~> 1.3.2'
 gem 'public_activity'
-gem 'mailboxer'
+gem 'mailboxer', github: 'mailboxer/mailboxer'
 
 group :development do
-  gem 'byebug'
-  gem 'web-console', '~> 2.0'
+  gem 'byebug', platform: :mri
+  gem 'web-console'
+  gem 'listen', '~> 3.0.5'
   gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'guard-bundler'
   gem 'guard-rails'
   gem "guard-minitest", :require => false
   gem 'hub', :require=>nil
-  gem 'quiet_assets'
   gem 'rails_layout'
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
 end
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
 end
+
 group :production do
   gem 'rails_12factor'
   gem 'unicorn'
 end
+
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
@@ -79,3 +84,7 @@ group :test do
   gem 'simplecov-rcov', :require => false
   gem 'minitest-around'
 end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+

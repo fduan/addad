@@ -1,43 +1,27 @@
-Addad
-================
+#Addad
 
-Ruby on Rails
--------------
+* Ruby version
 
-This application requires:
+* System dependencies
 
-- Ruby 2.1.1
-- Rails 4.1.6
+* Configuration
 
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
+* Database creation
 
-Getting Started
----------------
+* Database initialization
 
-#Bower
+* How to run the test suite
 
-* install nodejs, npm, and bower
-* add .bowerrc
-* bower init to generate bower.json
-* change config/application.rb to include bower_components in compiled assets
-* bower install package --save
-* add to asset manifest file or directly include them
-* custome materail: lessc -x material-custom.less > dist/css/material-custom.min.css 
+* Services (job queues, cache servers, search engines, etc.)
 
-Documentation and Support
--------------------------
+* Deployment instructions
 
-Issues
--------------
+* Developer
 
-Similar Projects
-----------------
-
-Contributing
-------------
-
-Credits
--------
-
-License
--------
+	* install nodejs, npm, and bower
+	* add .bowerrc
+	* bower init to generate bower.json
+	* change config/application.rb to include bower_components in compiled assets
+	* bower install package --save
+	* add to asset manifest file or directly include them
+	* custome materail: lessc -x material-custom.less > dist/css/material-custom.min.css 

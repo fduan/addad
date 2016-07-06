@@ -1,7 +1,7 @@
 namespace :test do
-  Rails::TestTask.new(:features => :prepare) do |t|
-    t.pattern = "test/features/**/*_test.rb"
+  desc "Run only the tests in the `test/features` directory"
+  task :features  => "test:prepare" do
+    $: << "test"
+    Rails::TestRunner.run(["test/features"])
   end
-  Rake::Task['test:features'].comment = "Runs features tests in a single block"
-
 end

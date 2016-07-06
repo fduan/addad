@@ -1,8 +1,8 @@
 require "test_helper"
 
 class LikesControllerTest < ActionController::TestCase
-  def test_create,
-    get :create,
+  def test_create
+    get :create
     assert_response :success
   end
 
